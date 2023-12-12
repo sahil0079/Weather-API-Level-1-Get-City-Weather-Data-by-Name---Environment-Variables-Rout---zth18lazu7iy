@@ -27,9 +27,14 @@ async function saveDataToDatabase(data) {
 
 // Level 1: Get City Weather Data by Name
 async function getWeatherDataByName(cityName) {
-  
-}
 
+  const weatherData = await getDataFromDatabase();
+  // console.log('weatherData', weatherData)
+
+  const cityWeather = weatherData.find(city => city.city.toLowerCase() === cityName.toLowerCase())
+
+  return cityWeather;
+}
 
 module.exports = {
   getWeatherDataByName
